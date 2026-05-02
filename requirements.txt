@@ -1,0 +1,10 @@
+pandas
+sqlalchemy
+psycopg2-binary
+python-dotenv
+exchange-calendars
+jugaad-data
+mftool
+pytest
+streamlit
+plotly
