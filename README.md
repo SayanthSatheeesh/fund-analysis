@@ -1,75 +1,48 @@
-# Fund Index Analysis System
+# Fund Index Analysis Dashboard 📊
 
-An automated ELT (Extract, Load, Transform) pipeline and Business Intelligence suite for tracking mutual fund performance against market benchmarks.
+A professional, production-ready Streamlit application for analyzing mutual fund performance against benchmark indices.
 
-## 📊 Overview
-This system automates the daily ingestion of mutual fund NAV data and market index prices (NIFTY 50, etc.), processes them into a PostgreSQL Star Schema, and serves insights via an interactive Streamlit dashboard and Power BI reports.
+## Features
+- **Summary Trend Analysis**: Interactive Plotly charts comparing NAV vs. Benchmark.
+- **Period Performance**: Comprehensive breakdown of returns across 1M, 3M, 6M, 1Y, and YTD.
+- **Heatmap Visualization**: Matrix view of monthly returns for quick pattern recognition.
+- **Premium UI**: Custom CSS with glassmorphism effects, dark mode, and responsive layout.
 
-### Key Features
-- **Automated ELT Pipeline**: Incremental loading with watermark tracking.
-- **Data Quality Gates**: Automated validation of incoming data before mart loading.
-- **Star Schema Data Mart**: Optimized PostgreSQL schema for analytical queries.
-- **Financial Metrics**: Calculation of rolling returns, tracking error, and Alpha.
-- **Interactive Dashboards**: Real-time visualization using Streamlit and Plotly.
-- **Power BI Integration**: Pre-defined views for professional reporting.
-
-## 🛠️ Tech Stack
-- **Language**: Python 3.x
-- **Data Processing**: Pandas, NumPy
-- **Database**: PostgreSQL, SQLAlchemy
-- **Visualization**: Streamlit, Plotly, Power BI
-- **Environment**: Dotenv, VS Code
-
-## 📁 Project Structure
-- `pipeline/`: Core ELT logic (Extract, Clean, Transform, Validate).
-- `db/`: Database connection and migration scripts.
-- `dashboard/`: Streamlit application code.
-- `docs/`: Technical documentation and BI development guides.
-- `reports/`: Generated quality and validation reports.
-
-## 🚀 Getting Started
+## Setup Instructions
 
 ### 1. Prerequisites
-- Python 3.x
-- PostgreSQL installed and running.
-- Power BI Desktop (optional, for .pbix reports).
+- Python 3.11+
+- PostgreSQL (Optional, fallback to sample data available)
 
-### 2. Installation
+### 2. Local Installation
 ```bash
+# Clone the repository
+git clone <your-repo-url>
+cd tcs-fund-analysis
+
 # Install dependencies
 pip install -r requirements.txt
+
+# Run the application
+streamlit run app.py
 ```
 
-### 3. Configuration
-Copy `.env.example` to `.env` and configure your PostgreSQL credentials:
-```bash
-DB_USER=your_user
-DB_PASSWORD=your_password
-DB_HOST=localhost
-DB_PORT=5432
-DB_NAME=fund_analysis
+### 3. Database Configuration
+To connect to a live PostgreSQL database, create a `.streamlit/secrets.toml` file:
+```toml
+[postgres]
+host = "localhost"
+port = 5432
+dbname = "fund_analysis"
+user = "postgres"
+password = "yourpassword"
 ```
 
-### 4. Running the Pipeline
-```bash
-# Execute the full ELT cycle
-python pipeline/run_all.py
-```
-
-### 5. Launching the Dashboard
-```bash
-# Start the Streamlit app
-streamlit run dashboard/app.py
-```
-
-## 📜 Documentation
-- [BI Development Guide](docs/bi_dev_guide.md)
-- [Measure Catalogue](docs/measure_catalogue.md)
-- [Progress Tracker](progress.md)
-
-## 👤 Author
-**Sayanth Satheesh**  
-Lead College (Autonomous)
+## Deployment
+This app is ready for deployment on **Streamlit Community Cloud**, **Render**, or **Railway**.
+- **Procfile** included for Render/Heroku.
+- **runtime.txt** included for Python version specification.
+- **requirements.txt** included for automated environment setup.
 
 ---
-*Note: This project uses mock data generators for NSE indices and fund ratings to demonstrate functionality without requiring proprietary API keys.*
+*Developed for professional financial analysis.*
