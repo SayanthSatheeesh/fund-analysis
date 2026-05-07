@@ -239,6 +239,16 @@ def migrate():
         'agg_period_returns', 'agg_monthly_trends', 'agg_rolling_returns', 'watch_list'
     ]
     
+    # Clear existing data to avoid duplicate key errors on re-runs
+    with pg_engine.connect() as conn:
+        print("Clearing existing data from PostgreSQL tables...")
+        truncate_sql = f"TRUNCATE TABLE {', '.join(tables)} CASCADE;"
+        try:
+            conn.execute(text(truncate_sql))
+            conn.commit()
+        except Exception as e:
+            print(f"Warning during truncate: {str(e)}")
+
     for table in tables:
         print(f"Migrating table: {table}...")
         try:

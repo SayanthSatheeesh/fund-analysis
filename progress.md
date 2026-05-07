@@ -34,11 +34,11 @@
 
 | ID | Decision | Status | Resolution | Resolved Date |
 |---|---|---|---|---|
-| D-001 | Database engine | ⬜ PENDING | — | — |
+| D-001 | Database engine | ✅ RESOLVED | PostgreSQL 16+ | 2026-05-06 |
 | D-002 | NSE data access method | ✅ RESOLVED | Mock Data Generator | 2026-04-27 |
-| D-003 | Fund NAV data source | ⬜ PENDING | — | — |
-| D-004 | Reporting tool | ⬜ PENDING | — | — |
-| D-005 | Deployment target | ⬜ PENDING | — | — |
+| D-003 | Fund NAV data source | ✅ RESOLVED | AMFI public NAV (mftool) | 2026-04-27 |
+| D-004 | Reporting tool | ✅ RESOLVED | Tableau Desktop | 2026-05-06 |
+| D-005 | Deployment target | ✅ RESOLVED | Local Server (PostgreSQL) | 2026-05-06 |
 | D-006 | Fund rating data source | ✅ RESOLVED | Mock Data Generator | 2026-04-27 |
 
 ---
@@ -147,20 +147,20 @@
 
 | Task | Status | Notes |
 |---|---|---|
-| T-044: BI connection | ✅ | Views created in 005_report_views.sql |
-| T-045: Star schema relationships | ✅ | Defined in docs/bi_dev_guide.md |
-| T-046: 6 Pandas aggregations | ✅ | Defined in docs/measure_catalogue.md |
+| T-044: BI connection | ✅ | PostgreSQL Views created |
+| T-045: Star schema relationships | ✅ | Defined in docs/tableau_dev_guide.md |
+| T-046: 6 Calculated Measures | ✅ | Defined in docs/measure_catalogue.md |
 | T-047: Measure catalogue | ✅ | Created docs/measure_catalogue.md |
 
 ### M3 — Phase 3B: Dashboard Pages (Manual GUI Work) (5/5 tasks)
 
 | Task | Status | Notes |
 |---|---|---|
-| T-048: [AUTOMATED] Page 1 — Summary | ✅ | Instructions in bi_dev_guide.md |
-| T-049: [AUTOMATED] Page 2 — Fund Detail | ✅ | Instructions in bi_dev_guide.md |
-| T-050: [AUTOMATED] Page 3 — Comparison | ✅ | Instructions in bi_dev_guide.md |
-| T-051: [AUTOMATED] Interactive slicers | ✅ | Instructions in bi_dev_guide.md |
-| T-052: [AUTOMATED] Drill-down navigation | ✅ | Instructions in bi_dev_guide.md |
+| T-048: [MANUAL] Page 1 — Summary | ⬜ | Instructions in tableau_dev_guide.md |
+| T-049: [MANUAL] Page 2 — Fund Detail | ⬜ | Instructions in tableau_dev_guide.md |
+| T-050: [MANUAL] Page 3 — Comparison | ⬜ | Instructions in tableau_dev_guide.md |
+| T-051: [MANUAL] Dashboard Actions | ⬜ | Instructions in tableau_dev_guide.md |
+| T-052: [MANUAL] Hierarchical Drills | ⬜ | Instructions in tableau_dev_guide.md |
 
 ### M3 — Phase 3C: UAT (4/4 tasks)
 
